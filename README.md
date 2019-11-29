@@ -1,1 +1,4 @@
 # duck1yx64.github.io
+
+# NO MORE MARKDOWN PAGES
+# HOORAY FOR HTML
