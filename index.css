@@ -1,0 +1,45 @@
+.blur {	
+    filter: url(blur.svg#blur);
+    -webkit-filter: blur(1px);
+    -moz-filter: blur(1px);
+    -ms-filter: blur(1px);    
+    filter: blur(1px);
+}
+html,div,h1{margin: 0;padding: 0;}
+body{
+    background-color: rgb(110, 255, 173)
+}
+#box{
+    position: absolute;
+    width: 1280px;
+    height: 600px;
+}
+#popover{
+    position: absolute;
+    color: rgb(255,255,255);
+    width: 200px;
+    display: none;
+    pointer-events: none;
+}
+#lable-welcome{
+    text-align:center;
+    border:2px solid black;
+    border-radius:10px;
+    margin-left:auto;
+    margin-right:auto;
+    background-color: rgb(181, 255, 236);
+}
+.yellow-warn{
+    text-indent: 3px;
+    background-color: #faffae!important;
+    padding: 14px;
+    border-left: 6px solid #ccc!important;
+    border-color: rgb(255, 212, 71)!important;
+}
+.blue-info{
+    text-indent: 3px;
+    background-color: #b8ffed!important;
+    padding: 14px;
+    border-left: 6px solid #ccc!important;
+    border-color: rgb(54, 211, 211)!important;
+}
