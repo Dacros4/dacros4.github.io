@@ -23,3 +23,14 @@ body{
     border-left: 6px solid #ccc!important;
     border-color: rgb(54, 211, 211)!important;
 }
+a{
+    color:#b8ffed;
+}
+#footer{
+    position:fixed;
+    bottom:0;
+    width:100%;
+    margin-left:-8px;
+    padding:0;
+    background-color: rgb(0, 58, 31);
+}
