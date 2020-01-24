@@ -1,4 +1,6 @@
 function speedtool(){
-    s = Number(document.getElementById("textbox-st-s").vaule);
-    console.log(s);
+    var s = parseFloat(document.getElementById("textbox-st-s").value);
+    var t = parseFloat(document.getElementById("textbox-st-t").value);
+    var v = String(s/t);
+    document.getElementById("lable-st-v").innerHTML = v;
 }
