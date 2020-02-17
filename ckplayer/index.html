@@ -1,4 +1,5 @@
 ﻿<!DOCTYPE html>
+<link rel="stylesheet" href="../index.css">
 <html>
 
 	<head>
@@ -10,6 +11,9 @@
 	</head>
 
 	<body>
+		<p class="yellow-warn">
+			WARN:If you want to use it,change the link into duck1yx64.github.io/ckplayer/index.html?url=xxx.xxx.xxx.xxx/live/xxx
+		</p>
 		<div id="video" style="width: 600px; height: 400px;"></div>
 		<script type="text/javascript">
 			function getQueryString(name) {
@@ -25,7 +29,7 @@
 				variable: 'player',//播放函数名称
 				autoplay:false,
 				live:true,
-				video: getQueryString("url")
+				video: 'rtmp://'+getQueryString("url")
 			};
 			var player = new ckplayer(videoObject);
 		</script>
