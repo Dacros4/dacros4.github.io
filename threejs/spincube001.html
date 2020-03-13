@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Three.JS Test Page</title>
+    <script src="../three.min.js"></script>
+</head>
+<body>
+    <p>THREE.JS SPINING CUBE 001:</p>
+    <div id="spin-cube" style="height:300px;width:300px;"></div>
+    <script>
+        var dwidth = document.getElementById("spin-cube").offsetWidth;
+        var dheight = document.getElementById("spin-cube").offsetHeight;
+        var scene = new THREE.Scene();
+        var light = new THREE.DirectionalLight(0xFF0000,1.0,0);
+        light.position.set(100, 100, 200);
+        scene.add(light);
+        var camera = new THREE.PerspectiveCamera(75, dwidth / dheight, 0.1, 1000);
+        
+        var renderer = new THREE.WebGLRenderer();
+        
+        renderer.setSize(dwidth,dheight);
+        
+        document.getElementById("spin-cube").appendChild(renderer.domElement);
+        var geometry = new THREE.CubeGeometry(3,2,1);
+        var material = new THREE.MeshBasicMaterial({color: 0x992982});
+        var cube = new THREE.Mesh(geometry, material); 
+        scene.add(cube);
+        camera.position.x = 0;
+        camera.position.y = 0;
+        camera.position.z = 5;
+        function render() {
+            requestAnimationFrame(render);
+            cube.rotation.x += 0.01;
+            cube.rotation.y += 0.1;
+            renderer.render(scene, camera);
+        }
+        render();
+    </script>
+</body>
+</html>
