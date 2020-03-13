@@ -6,23 +6,31 @@
 </head>
 <body>
     <p>THREE.JS SPINING CUBE 001:</p>
-    <div id="spin-cube" style="height:300px;width:300px;"></div>
+    <div id="spin-cube" style="height:300px;width:300px;background-color: #929938;"></div>
     <script>
         var dwidth = document.getElementById("spin-cube").offsetWidth;
         var dheight = document.getElementById("spin-cube").offsetHeight;
         var scene = new THREE.Scene();
-        var light = new THREE.DirectionalLight(0xFF0000,1.0,0);
-        light.position.set(100, 100, 200);
+        
+        var light = new THREE.PointLight(0xFFFFFF);
+        var light2 = new THREE.PointLight(0xFFFFFF);
+        var light3 = new THREE.PointLight(0xFFFFFF);
+        light2.position.set(-100,0,50);
+        light3.position.set(100,0,-50);
+        light.position.set(0,200,0);
         scene.add(light);
+        scene.add(light2);
+        scene.add(light3);
         var camera = new THREE.PerspectiveCamera(75, dwidth / dheight, 0.1, 1000);
         
         var renderer = new THREE.WebGLRenderer();
         
         renderer.setSize(dwidth,dheight);
+        renderer.setClearColor(0xFFFFFF,1.0);
         
         document.getElementById("spin-cube").appendChild(renderer.domElement);
         var geometry = new THREE.CubeGeometry(3,2,1);
-        var material = new THREE.MeshBasicMaterial({color: 0x992982});
+        var material = new THREE.MeshLambertMaterial({color: 0x929938});
         var cube = new THREE.Mesh(geometry, material); 
         scene.add(cube);
         camera.position.x = 0;
@@ -31,7 +39,7 @@
         function render() {
             requestAnimationFrame(render);
             cube.rotation.x += 0.01;
-            cube.rotation.y += 0.1;
+            cube.rotation.y -= 0.01;
             renderer.render(scene, camera);
         }
         render();
