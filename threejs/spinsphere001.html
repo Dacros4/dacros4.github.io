@@ -1,0 +1,48 @@
+<html>
+    <head>
+        <title>TEST SPHERE 001</title>
+        <script src="../three.min.js"></script>
+    </head>
+    <body>
+        <p>Only for test:</p>
+        <div id="t" style="height:400px;width:400px;"></div>
+        <script>
+            var scene = new THREE.Scene();
+            var width = document.getElementById("t").offsetWidth;
+            var height = document.getElementById("t").offsetHeight;
+            var renderer = new THREE.WebGLRenderer();
+            renderer.setSize(width,height);
+            renderer.setClearColor(0xF2F2F2);
+            document.getElementById("t").appendChild(renderer.domElement);
+            var camera = new THREE.PerspectiveCamera(75,width/height,0.1,1000);
+            scene.add(camera);
+            camera.position.set(5,5,5);
+            camera.lookAt(0,0,0);
+            //camera.up.x = 1;
+            //camera.up.y = 1;
+            //camera.up.z = 1;
+            var lights = [new THREE.PointLight(0xFFFFFF),new THREE.PointLight(0xFFFFFF)];
+            lights[0].position.set(1000,500,0);
+            lights[1].position.set(0,250,-100);
+            scene.add(lights[0]);
+            scene.add(lights[1]);
+            var geometry = new THREE.SphereGeometry(2,16,16);
+            geometry.vertices[0].uv = new THREE.Vector2(0,0);
+            geometry.vertices[1].uv = new THREE.Vector2(1,0);
+            geometry.vertices[2].uv = new THREE.Vector2(1,1);
+            geometry.vertices[3].uv = new THREE.Vector2(0,1);
+            var texture = new THREE.ImageUtils.loadTexture("alex.png",null,function(t){});
+            var material = new THREE.MeshPhongMaterial({map:texture,flatShading:true,shininess:100}); 
+            var sphere = new THREE.Mesh(geometry,material);
+            scene.add(sphere);
+            function render(){
+                requestAnimationFrame(render);
+                sphere.rotation.x += 0.01;
+                sphere.rotation.y -= 0.01;
+                sphere.rotation.z += 0.01;
+                renderer.render(scene,camera);
+            }
+            render();
+        </script>
+    </body>
+</html>
