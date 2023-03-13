@@ -1,3 +1,7 @@
+<!--
+aW0gcGxhbm5pbmcgdG8gZGllIGJ1dCBuZXZlciBoYXMgdGhlIGNvdXJhZ2UgdG8gZG8gc28NCmJvdWdodCBhIHdob2xlIGJvdHRsZSBvZiBmcmVzaCBiYWNsMiBidXQgY291bGRudCBkcmluayBpdA0KaSB0cnVzdCBubyBvbmUgYW5kIHZlcnkgaGVscGxlc3MgZXZlcnkgb25lIGFyZQ0KaWYgeW91IG1hbmFnZSB0byBzZWUgdGhpcyBwbGVhc2UgZG9udCBib3JlIG1lIHdpdGggeW91ciBzeW1wYXRoeQ0KanVzdCB0cmVhdCB0aGlzIG1lc3NhZ2UgYXMgaWYgaSB3cm90ZSBub3RoaW5nIGhlcmUNCmkgbWF5IGxpdmUgYSBkZXN0cnVjdGl2ZSBsaWZlIGFmdGVyd2FyZHMgbWF5IHdyaXRlIG1vcmUgY3JpbmdlIHNoaXQgbGlrZSB0aGlzDQpqdXN0IGlnbm9yZSBtZSBhbnl3YXkNCmZ1Y2sgeW91IGFuZCB5b3VyIHdob2xlIGZhbWlseSBidHcNCmZ1Y2tpbmcgY3JlZXA=
+-->
+<!DOCTYPE HTML>
 <html>
     <head>
         <title id="title">Calm down</title>
@@ -30,7 +34,7 @@
             var txt = document.getElementById("calm");
             var dnt = document.getElementById("dienow");
             var title = document.getElementById("title");
-            var itvid = setInterval("actit()", 1500);
+			var mus = new Audio("chillmusic.mp3");
             function actit() {
                 var dwm = "diewithmenow";
                 var sdwm = "";
@@ -39,10 +43,13 @@
                 }
                 txt.innerHTML = "Die with me now.";
                 dnt.innerHTML = sdwm;
-                title.innerHTML = "Let's dive in."
+                title.innerHTML = "say no more"
                 clearInterval();
             }
-            txt.onmousedown = actit;
+            document.onreadystatechange = function () {
+				mus.play();
+				setInterval("actit()", 4000);
+			};
         </script>
     </body>
 </html>
